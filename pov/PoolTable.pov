@@ -16,21 +16,38 @@ sky_sphere
 
 //table
 #declare table = 2;
-#declare tablehright = 0.2;
+#declare tablehright = 0.3;
 #declare coord = 2.5;
-box
+#declare bandenbreite = 0.4;
+difference
 {
-      <-coord, table, 0>, <table*2, table+tablehright, table*2>
-      scale 1
-      rotate <0, 0, 0>
-      
-      pigment
-      {
-         color rgb <0, 1, 0>
-      }
+	box
+	{
+	      <-coord, table, 0>, <table*2, table+tablehright, table*2>
+	      scale 1
+	      
+	      pigment
+	      {
+	         color rgb <1.3, 0.5, 0>
+	      }
+	
+	      translate y*0.5
+	}
 
-      translate y*0.5
+	box
+	{
+	      <-coord+ bandenbreite, table+0.1, bandenbreite>, <table*2-bandenbreite, table+tablehright+0.5, table*2-bandenbreite>
+	      scale 1
+	      
+	      pigment
+	      {
+	         color rgb <0, 1, 0>
+	      }
+	
+	      translate y*0.5
+	}
 }
+
 #declare beinbreite = 0.5;
 
 #macro Tischbein(X,Y,Z,
@@ -54,6 +71,20 @@ Tischbein(-coord,0,(table*2)-beinbreite,beinbreite, table, beinbreite)
 Tischbein((table*2)-beinbreite,0,(table*2)-beinbreite,beinbreite, table, beinbreite)
 Tischbein((table*2)-beinbreite,0,0,beinbreite, table, beinbreite)
 
+#macro Ball(X,Y,Z, Color)
+#declare ballradius = 0.2;
+sphere
+{
+	<X, Y+ballradius, Z>, ballradius
+	  texture {
+	    pigment { color Color }
+	  }
+	  translate y*0.5
+}
+#end
+Ball(0, table+0.1,2, Yellow)
+Ball(0, table+0.1,2-ballradius*3, Red)
+Ball(ballradius*6, table+0.1,2-ballradius*2, White)
 
 //room
 #declare wallthickness = 0.25;
@@ -176,7 +207,7 @@ light_source
 camera
 {
    perspective
-   location <8, 7, -15>
+   location <8, 7, -12>
    sky <0, 1, 0>
    direction <0, 0, 1>
    right <1.3333, 0, 0>
