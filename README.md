@@ -11,6 +11,7 @@ online sources:
 * http://csi.chemie.tu-darmstadt.de/ak/immel/graphics/povray35.html
 * http://www.oyonale.com/modeles.php?format=POV (pov model collection)
 * ...
+* http://www.sharecg.com/pf/full_uploads.php?pf_user_name=embolino&division_id=0&s=dd&pn=2&interstitial_displayed=Yes (image maps for balls)
 
 ffmpeg (sequence of images to movie):
 -------------------------------------
