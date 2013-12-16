@@ -1,5 +1,6 @@
 #include "colors.inc"
 #include "textures.inc"
+#include "Tischgruppe.inc"
 
 sky_sphere {
    //*PMRawBegin
@@ -233,6 +234,10 @@ union {
    }
    translate x*19.5
 }
+
+//Tischgruppen
+Tischgruppe(-4,-0.4,4)
+Tischgruppe(5,-0.4,4)
 
 camera {
    perspective
