@@ -1,5 +1,6 @@
 #include "colors.inc"
 #include "textures.inc"
+#include "Tischgruppe.inc"
 #include "transforms.inc"
 
 #include "obj_barchair.pov"
@@ -304,9 +305,13 @@ union {
    translate x*19.5
 }
 
+//Tischgruppen
+Tischgruppe(-4,-0.4,4)
+Tischgruppe(5,-0.4,4)
 //objects
 
 object{Door(-2.49, 0.1, 9.5,5,8,0.15) Rotate_Around_Trans(<0,-85,0>,<2.5, 0.1, 9.5>)}
+
 
 
 object{Barstool(10,0.1,-4.5) scale 0.6}
