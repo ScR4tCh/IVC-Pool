@@ -71,22 +71,45 @@ Tischbein(-coord,0,(table*2)-beinbreite,beinbreite, table, beinbreite)
 Tischbein((table*2)-beinbreite,0,(table*2)-beinbreite,beinbreite, table, beinbreite)
 Tischbein((table*2)-beinbreite,0,0,beinbreite, table, beinbreite)
 
-#macro Ball(X,Y,Z, Color)
+
 #declare ballradius = 0.2;
-sphere
-{
-	<X, Y+ballradius, Z>, ballradius
-	  texture {
-	    pigment { color Color }
-	  }
+#macro Ball(X,Y,Z,ImgID)
+
+sphere{
+	<X, Y+ballradius, Z>, ballradius scale <1,1,1>
+	  //texture {
+	 //   pigment { color Color }
+	    
+	    
+	pigment{image_map{
+	//jpeg "ball_maps/b_8.jpeg"
+	jpeg concat("ball_maps/b_" ,str(ImgID,1,0),".jpeg")
+       map_type 1
+        once
+	interpolate 2
+	}
+	translate <X, Y+ballradius, Z>
+
+
+	}
+	//finish { ambient 1 diffuse 0 }
+	  
+	  
 	  translate y*0.5
 }
-#end
-Ball(0, table+0.1,2, Yellow)
-Ball(0, table+0.1,2-ballradius*3, Red)
-Ball(ballradius*6, table+0.1,2-ballradius*2, White)
 
-//room
+
+
+#end
+
+Ball(0, table+0.1,2, 13)
+Ball(0, table+0.1,2-ballradius*3, 8)
+Ball(ballradius*6, table+0.1,2-ballradius*2, 1)
+Ball(ballradius*3, table+0.1,2-ballradius*2, 2)
+Ball(ballradius-2, table+0.1,2-ballradius*2, 11)
+Ball(ballradius-1.3, table+0.1,2-ballradius*2, 4)
+Ball(ballradius-0.8, table+0.1,2-ballradius*2, 5)
+
 #declare wallthickness = 0.25;
 #declare coord = 2.5;
 difference
